@@ -18,13 +18,16 @@ class ShoppinList extends Component {
             { id: uuid(), name: 'Milk' },
             { id: uuid(), name: 'Butter' },
             { id: uuid(), name: 'Flour' },
+            { id: uuid(), name: 'Bacon' },
         ]
     }
 
     render() {
         const { items } = this.state;
+
         return (
             <Container>
+
                <Button color="dark"
                style={{ marginBottom: '2rem' }}
                onClick={() => {
@@ -35,6 +38,28 @@ class ShoppinList extends Component {
                        }));
                    }
                }}>Add Item</Button> 
+
+               <ListGroup>
+                    <TransitionGroup className="shopping-list">
+                        {items.map(({ id, name }) => (
+                            <CSSTransition key={id} timeout={500} classNames="fade">
+                                <ListGroupItem>
+                                    <Button
+                                        className="remove-btn"
+                                        color="danger"
+                                        size="sm"
+                                        onClick={() => {
+                                            this.setState(state => ({
+                                                items: state.items.filter(item => item.id !== id)
+                                            }));
+                                        }}
+                                    >&times;</Button>
+                                {name}</ListGroupItem>
+                            </CSSTransition>
+                        ))}
+                    </TransitionGroup>
+               </ListGroup>
+
             </Container>
         );
     }
