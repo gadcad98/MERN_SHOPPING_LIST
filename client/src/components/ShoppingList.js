@@ -18,7 +18,7 @@ class ShoppinList extends Component {
             { id: uuid(), name: 'Milk' },
             { id: uuid(), name: 'Butter' },
             { id: uuid(), name: 'Flour' },
-            { id: uuid(), name: 'Bacon' },
+            { id: uuid(), name: 'Bacon' }
         ]
     }
 
