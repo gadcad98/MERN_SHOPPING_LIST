@@ -28,15 +28,16 @@ class ShoppinList extends Component {
         return (
             <Container>
 
-               <Button color="dark"
-               style={{ marginBottom: '2rem' }}
-               onClick={() => {
-                   const name = prompt('Enter Item');
-                   if(name) {
-                       this.setState(state => ({
-                           items: [...state.items, { id: uuid(), name }]
-                       }));
-                   }
+               <Button
+                    color="dark"
+                    style={{ marginBottom: '2rem' }}
+                    onClick={() => {
+                        const name = prompt('Enter Item');
+                        if(name) {
+                            this.setState(state => ({
+                                items: [...state.items, { id: uuid(), name }]
+                            }));
+                        }
                }}>Add Item</Button> 
 
                <ListGroup>
@@ -53,7 +54,7 @@ class ShoppinList extends Component {
                                                 items: state.items.filter(item => item.id !== id)
                                             }));
                                         }}
-                                    >&times;</Button>
+                                    >&Chi;</Button>
                                 {name}</ListGroupItem>
                             </CSSTransition>
                         ))}
