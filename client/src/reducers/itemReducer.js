@@ -7,11 +7,11 @@ const initialState = {
         { id: uuid(), name: 'Milk' },
         { id: uuid(), name: 'Butter' },
         { id: uuid(), name: 'Flour' },
-        { id: uuid(), name: 'Bacon' },
+        { id: uuid(), name: 'Bacon' }
     ]
 }
 
-export default function(state = initialState, action) {
+export default (state = initialState, action) => {
     switch(action.type) {
         case GET_ITEMS:
             return {
@@ -25,8 +25,8 @@ export default function(state = initialState, action) {
         case ADD_ITEM:
             return {
                 ...state,
-                item: [action.payload, ...state.items]
-            }
+                items: [action.payload, ...state.items]
+            };
         default:
             return state;
     }
